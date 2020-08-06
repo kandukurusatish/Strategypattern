@@ -47,6 +47,9 @@
     <Compile Include="Business\Models\Order.cs" />
     <Compile Include="Business\Models\Payment.cs" />
     <Compile Include="Business\Models\ShippingDetails.cs" />
+    <Compile Include="Business\Strategies\SalesTax\ISalesStrategy.cs" />
+    <Compile Include="Business\Strategies\SalesTax\SweedenSalesTaxStrategy.cs" />
+    <Compile Include="Business\Strategies\SalesTax\USASalesStrategy.cs" />
     <Compile Include="ItemType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
