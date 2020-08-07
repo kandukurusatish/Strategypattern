@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -47,9 +49,16 @@
     <Compile Include="Business\Models\Order.cs" />
     <Compile Include="Business\Models\Payment.cs" />
     <Compile Include="Business\Models\ShippingDetails.cs" />
+    <Compile Include="Business\Strategies\Invoice\EmailInvoiceStrategy.cs" />
+    <Compile Include="Business\Strategies\Invoice\FileInvoiceStrategy.cs" />
+    <Compile Include="Business\Strategies\Invoice\IInvoiceStrategy.cs" />
+    <Compile Include="Business\Strategies\Invoice\InvoiceStrategy.cs" />
     <Compile Include="Business\Strategies\SalesTax\ISalesStrategy.cs" />
     <Compile Include="Business\Strategies\SalesTax\SweedenSalesTaxStrategy.cs" />
     <Compile Include="Business\Strategies\SalesTax\USASalesStrategy.cs" />
+    <Compile Include="Business\Strategies\Shipping\BlueDartShippingStrategy.cs" />
+    <Compile Include="Business\Strategies\Shipping\DhlShippingStrategy.cs" />
+    <Compile Include="Business\Strategies\Shipping\IShippingStrategy.cs" />
     <Compile Include="ItemType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

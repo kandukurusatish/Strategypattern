@@ -1,7 +1,10 @@
-﻿using Strategypattern.Business.Strategies.SalesTax;
+﻿using Strategypattern.Business.Strategies.Invoice;
+using Strategypattern.Business.Strategies.SalesTax;
+using Strategypattern.Business.Strategies.Shipping;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,6 +21,10 @@ namespace Strategypattern.Business.Models
         public ShippingDetails ShippingDetails { get; set; }
 
         public ISalesStrategy SalesStrategy { get; set; }
+
+        public IInvoiceStrategy InvoiceStrategy { get; set; }
+
+        public IShippingStrategy ShippingStrategy { get; set; }
 
         public decimal GetTax(ISalesStrategy salesStrategy = default)
         {
@@ -50,6 +57,14 @@ namespace Strategypattern.Business.Models
                 return 0m;
             }
             return strategy.GetTax(this);
+        }
+
+        public void FinalizeOrder()
+        {
+            // Business Conditions here...
+            InvoiceStrategy.Generate(this);
+
+            ShippingStrategy.ShipOrder(this);
         }
     }
 }
